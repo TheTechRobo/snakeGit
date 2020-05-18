@@ -3,7 +3,7 @@ import sys
 from subprocess import PIPE
 def interactivity(Mi, may, mah, mo, mooooo):
     """
-    This is just an interactive wrapper for pyGit
+    An interactive wrapper for pyGit
     """
     print("Interactivity is not programmed yet :'/")
 def pyGit():
