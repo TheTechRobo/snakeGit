@@ -1,6 +1,13 @@
 from subprocess import Popen as p
 import sys
 from subprocess import PIPE
+def pyGit():
+    """
+    Welcome to pyGit!
+    This is pyGit Version 0.1-stable. It is unfinished and you probably shouldn't use it yet.
+    """
+    print("This is pyGit 0.1-stable. It is currently unfinished.\nThanks for your interest! Check back later, it will probably have received some updates.")
+    print("If you need syntax documentation, it is either at github.com/thetechrobo/PyGit/wiki OR you can just type help(pygit) into the console (after you have imported it).")
 def commit(msg):
     """
     Syntax: commit("message")
