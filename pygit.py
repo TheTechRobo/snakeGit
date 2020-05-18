@@ -1,6 +1,8 @@
 from subprocess import Popen as p
 import sys
 from subprocess import PIPE
+def interactivity(Mi, may, mah, mo, mooooo):
+    print("Interactivity is not programmed yet :'/")
 def pyGit():
     """
     Small infotext
@@ -45,4 +47,4 @@ def push(remote, branch):
     yolo = p(["git", "push", remote, branch], shell=False, stdout=sys.stdout, stderr=sys.stdout)
     print("Attempted to push. Look to see if it was successful.")
 if __name__ == "__main__":
-    print("Interactivity is not yet supported.")
+    interactivity("notSupported", False, True, 101001110100, "port283")
