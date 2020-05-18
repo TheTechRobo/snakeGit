@@ -16,3 +16,5 @@ def add(files):
     Use as many files as you want, separated by a space.
     Please make it a string.
     """
+if __name__ == "__main__":
+    print("Interactivity is currently not supported.")
