@@ -25,5 +25,15 @@ def add(files):
     hi = ih.communicate()
     print(hi)
     print("Attempted to stage files %s. Look above to see if it was successful, if it failed it would show you details." % files)
+def push(branch, remote):
+    """
+    Syntax: push(branch, remote)
+    It will push all commits.
+    Currently other args are not supported.
+    """
+    print("Pushing to branch %s, remote %s" % (branch, remote))
+    yolo = p(["git", "push", branch, remote], shell=False, stdout=PIPE, stderr=PIPE)
+    theCommunication = yolo.communicate()
+    print(theCommunication)
 if __name__ == "__main__":
     print("Interactivity is not yet supported.")
