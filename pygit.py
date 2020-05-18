@@ -27,7 +27,7 @@ def add(files):
     """
     print("Staging files...")
     ih = p(["git", "add", "%s" % files], shell=False, stdout=sys.stdout, stderr=sys.stdout)
-    print("Attempted to stage files %s. Look above to see if it was successful, if it failed it would show you details." % files)
+    print("Attempted to stage files %s. Look below to see if it was successful, if it failed it would show you details." % files)
 def push(branch, remote):
     """
     Syntax: push(branch, remote)
