@@ -34,7 +34,7 @@ def stage(files):
     Same as add()
     """
     add(files)
-def push(branch, remote):
+def push(remote, branch):
     """
     Pushes local commits to remote server.
     Syntax: push(branch, remote)
