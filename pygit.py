@@ -3,8 +3,7 @@ import sys
 from subprocess import PIPE
 def pyGit():
     """
-    Welcome to pyGit!
-    This is pyGit Version v.0.1.1-stable. It is unfinished and you probably shouldn't use it yet.
+    Small infotext
     """
     print("This is pyGit v.0.1.1-stable. It is currently unfinished.\nThanks for your interest! Check back later, it will probably have received some updates.")
     print("If you need syntax documentation, it is either at github.com/thetechrobo/PyGit/wiki OR you can just type help(pygit) into the console (after you have imported it).")
