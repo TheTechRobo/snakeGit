@@ -32,7 +32,7 @@ def push(branch, remote):
     Currently other args are not supported.
     """
     print("Pushing to branch %s, remote %s" % (branch, remote))
-    yolo = p(["git", "push", branch, remote], shell=False, stdout=PIPE, stderr=PIPE)
+    yolo = p(["git", "push", remote, branch], shell=False, stdout=PIPE, stderr=PIPE)
     theCommunication = yolo.communicate()
     print(theCommunication)
 if __name__ == "__main__":
