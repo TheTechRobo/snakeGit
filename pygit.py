@@ -17,7 +17,7 @@ def commit(msg):
     """
     print("Commiting message...")
     hi = p(["git", "commit", "-m", " pyGit Commit: %s" % msg], shell=False, stdout=PIPE, stderr=PIPE)
-    ih = hi.communicate()
+    ih = str(hi.communicate())
     print(ih)
     print("Attempted to commit message %s. Look above to see if it was successful, it will show you info just as it would show you without pyGit." % msg)
 def add(files):
@@ -29,7 +29,7 @@ def add(files):
     """
     print("Staging files...")
     ih = p(["git", "add", "%s" % files], shell=False, stdout=PIPE, stderr=PIPE)
-    hi = ih.communicate()
+    hi = str(ih.communicate())
     print(hi)
     print("Attempted to stage files %s. Look above to see if it was successful, if it failed it would show you details." % files)
 def push(branch, remote):
@@ -40,7 +40,7 @@ def push(branch, remote):
     """
     print("Pushing to branch %s, remote %s" % (branch, remote))
     yolo = p(["git", "push", remote, branch], shell=False, stdout=PIPE, stderr=PIPE)
-    theCommunication = yolo.communicate()
+    theCommunication = str(yolo.communicate())
     print(theCommunication)
 if __name__ == "__main__":
     print("Interactivity is not yet supported.")
