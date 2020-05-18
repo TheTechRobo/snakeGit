@@ -36,7 +36,6 @@ def push(branch, remote):
     """
     print("Pushing to branch %s, remote %s" % (branch, remote))
     yolo = p(["git", "push", remote, branch], shell=False, stdout=sys.stdout, stderr=sys.stdout)
-    theCommunication = str(yolo.communicate())
-    print(theCommunication)
+    print("Attempted to push. Look to see if it was successful.")
 if __name__ == "__main__":
     print("Interactivity is not yet supported.")
