@@ -15,6 +15,10 @@ def add(files):
     Syntax: add("files")
     Use as many files as you want, separated by a space.
     Please make it a string.
+    If you want to add all files, use "."
     """
+    print("Staging files...")
+    p(["git", "add %s" % files], shell=False, stdout=sys.stdout, stderr=sys.stderr)
+    print("Attempted to stage files. Look above to see if it was successful, it will show you info just as it would show you without pyGit.")
 if __name__ == "__main__":
-    print("Interactivity is currently not supported.")
+    print("Interactivity is not yet supported.")
