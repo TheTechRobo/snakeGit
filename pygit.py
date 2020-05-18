@@ -16,9 +16,7 @@ def commit(msg):
     If you want to add this functionality, either add it yourself and Pull Request your changes, or request it in the Issues section.
     """
     print("Commiting message...")
-    hi = p(["git", "commit", "-m", " pyGit Commit: %s" % msg], shell=False, stdout=PIPE, stderr=PIPE)
-    ih = str(hi.communicate())
-    print(ih)
+    hi = p(["git", "commit", "-m", " pyGit Commit: %s" % msg], shell=False, stdout=sys.stdout, stderr=sys.stdout)
     print("Attempted to commit message %s. Look above to see if it was successful, it will show you info just as it would show you without pyGit." % msg)
 def add(files):
     """
@@ -28,9 +26,7 @@ def add(files):
     If you want to add all files, use "."
     """
     print("Staging files...")
-    ih = p(["git", "add", "%s" % files], shell=False, stdout=PIPE, stderr=PIPE)
-    hi = str(ih.communicate())
-    print(hi)
+    ih = p(["git", "add", "%s" % files], shell=False, stdout=sys.stdout, stderr=sys.stdout)
     print("Attempted to stage files %s. Look above to see if it was successful, if it failed it would show you details." % files)
 def push(branch, remote):
     """
@@ -39,7 +35,7 @@ def push(branch, remote):
     Currently other args are not supported.
     """
     print("Pushing to branch %s, remote %s" % (branch, remote))
-    yolo = p(["git", "push", remote, branch], shell=False, stdout=PIPE, stderr=PIPE)
+    yolo = p(["git", "push", remote, branch], shell=False, stdout=sys.stdout, stderr=sys.stdout)
     theCommunication = str(yolo.communicate())
     print(theCommunication)
 if __name__ == "__main__":
