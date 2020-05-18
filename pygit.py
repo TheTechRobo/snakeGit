@@ -9,9 +9,7 @@ def commit(msg):
     If you want to add this functionality, either add it yourself and Pull Request your changes, or request it in the Issues section.
     """
     print("Commiting message...")
-    hi = p(["git", "commit", "-m", " pyGit Commit: %s" % msg], shell=False, stdout=PIPE, stderr=PIPE)
-    ih = hi.communicate()
-    print(ih)
+    p(["git", "commit", "-m", " pyGit Commit: %s" % msg], shell=False, stdout=PIPE, stderr=PIPE)
     print("Attempted to commit message %s. Look above to see if it was successful, it will show you info just as it would show you without pyGit." % msg)
 def add(files):
     """
@@ -24,6 +22,6 @@ def add(files):
     ih = p(["git", "add", "%s" % files], shell=False, stdout=PIPE, stderr=PIPE)
     hi = ih.communicate()
     print(hi)
-    print("Attempted to stage files %s. Look above to see if it was successful, it will show you info just as it would show you without pyGit." % files)
+    print("Attempted to stage files %s. Look above to see if it was successful, if it failed it would show you details." % files)
 if __name__ == "__main__":
     print("Interactivity is not yet supported.")
