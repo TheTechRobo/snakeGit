@@ -1,5 +1,6 @@
 from subprocess import Popen as p
 import sys
+from subprocess import PIPE
 def commit(msg):
     """
     Syntax: commit("message")
@@ -8,7 +9,9 @@ def commit(msg):
     If you want to add this functionality, either add it yourself and Pull Request your changes, or request it in the Issues section.
     """
     print("Commiting message...")
-    p(["git", "commit -m pyGit Commit: %s" % msg], shell=False, stdout=sys.stdout, stderr=sys.stderr)
+    hi = p(["git", "commit", "-m", " pyGit Commit: %s" % msg], shell=False, stdout=PIPE, stderr=PIPE)
+    ih = hi.communicate()
+    print(ih)
     print("Attempted to commit message %s. Look above to see if it was successful, it will show you info just as it would show you without pyGit." % msg)
 def add(files):
     """
@@ -18,7 +21,9 @@ def add(files):
     If you want to add all files, use "."
     """
     print("Staging files...")
-    p(["git", "add %s" % files], shell=False, stdout=sys.stdout, stderr=sys.stderr)
+    ih = p(["git", "add", "%s" % files], shell=False, stdout=PIPE, stderr=PIPE)
+    hi = ih.communicate()
+    print(hi)
     print("Attempted to stage files %s. Look above to see if it was successful, it will show you info just as it would show you without pyGit." % files)
 if __name__ == "__main__":
     print("Interactivity is not yet supported.")
