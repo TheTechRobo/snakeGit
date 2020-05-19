@@ -1,3 +1,4 @@
+import time
 from subprocess import Popen as p
 import sys
 from subprocess import PIPE
