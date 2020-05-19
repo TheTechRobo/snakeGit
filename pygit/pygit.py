@@ -24,7 +24,7 @@ def commit(msg):
     """
     print("Commiting message...")
     hi = p(["git", "commit", "-m", " pyGit Commit: %s" % msg], shell=False, stdout=sys.stdout, stderr=sys.stdout)
-    print("Attempted to commit message %s. Look above to see if it was successful, it will show you info just as it would show you without pyGit." % msg)
+    print("Attempted to commit message %s. Look below to see if it was successful, it will show you info just as it would show you without pyGit." % msg)
 def add(files):
     """
     Stages files to be commited.
