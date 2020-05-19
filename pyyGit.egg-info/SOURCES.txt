@@ -1,0 +1,7 @@
+setup.py
+pyGit/__init__.py
+pyGit/pygit.py
+pyyGit.egg-info/PKG-INFO
+pyyGit.egg-info/SOURCES.txt
+pyyGit.egg-info/dependency_links.txt
+pyyGit.egg-info/top_level.txt
