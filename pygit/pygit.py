@@ -12,7 +12,7 @@ def pyGit():
     """
     Small infotext
     """
-    print("This is pyGit v.0.2.2-stable. It is currently unfinished.\nThanks for your interest! Check back later, it will probably have received some updates.")
+    print("This is pyGit v.0.2.4-stable. It is currently unfinished.\nThanks for your interest! Check back later, it will probably have received some updates.")
     print("If you need syntax documentation, it is either at github.com/thetechrobo/PyGit/wiki OR you can just type help(pygit) into the console (after you have imported it).")
 def commit(msg):
     """
@@ -24,7 +24,6 @@ def commit(msg):
     """
     print("Commiting message...")
     hi = p(["git", "commit", "-m", " pyGit Commit: %s" % msg], shell=False, stdout=sys.stdout, stderr=sys.stdout)
-    print("Attempted to commit message %s. Look below to see if it was successful, it will show you info just as it would show you without pyGit." % msg)
 def add(files):
     """
     Stages files to be commited.
@@ -35,7 +34,6 @@ def add(files):
     """
     print("Staging files...")
     ih = p(["git", "add", "%s" % files], shell=False, stdout=sys.stdout, stderr=sys.stdout)
-    print("Attempted to stage files %s. Look below to see if it was successful, if it failed it would show you details." % files)
 def stage(files):
     """
     Same as add()
@@ -52,7 +50,6 @@ def push(remote, branch):
     """
     print("Pushing to branch %s, remote %s" % (branch, remote))
     yolo = p(["git", "push", remote, branch], shell=False, stdout=sys.stdout, stderr=sys.stdout)
-    print("Attempted to push. Look to see if it was successful.")
 def pull(remote, branch):
     """
     Pulls from remote server.
@@ -62,7 +59,6 @@ def pull(remote, branch):
     """
     print("Pulling commits from remote %s, branch %s..." % (remote, branch))
     ih = p(["git", "pull", remote, branch], shell=False, stdout=sys.stdout, stderr=sys.stdout)
-    print("Attempted to pull from remote %s, branch %s. Look below to see if it was successful, if it failed it would show you details." % (remote, branch))
 def allInOne(message, remote, branch):
     """
     Adds all files -- with add(".") --, commits with user-given message, pulls from remote, pushes to remote.
@@ -78,6 +74,5 @@ def allInOne(message, remote, branch):
     pull(remote=remote, branch=branch)
     time.sleep(6)
     push(remote=remote, branch=branch)
-    print("All in One has completed. Check to see if it worked.")
 if __name__ == "__main__":
     interactivity()
