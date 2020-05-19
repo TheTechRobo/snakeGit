@@ -2,6 +2,7 @@ import time
 from subprocess import Popen as p
 import sys
 from subprocess import PIPE
+import os
 def interactivity():
     """
     An interactive wrapper for pyGit
@@ -11,7 +12,7 @@ def pyGit():
     """
     Small infotext
     """
-    print("This is pyGit v.0.2.1-stable. It is currently unfinished.\nThanks for your interest! Check back later, it will probably have received some updates.")
+    print("This is pyGit v.0.2.2-stable. It is currently unfinished.\nThanks for your interest! Check back later, it will probably have received some updates.")
     print("If you need syntax documentation, it is either at github.com/thetechrobo/PyGit/wiki OR you can just type help(pygit) into the console (after you have imported it).")
 def commit(msg):
     """
@@ -68,10 +69,8 @@ def allInOne(message, remote, branch):
     Currently args are not supported.
     """
     p(["git add ."], shell=True)
-    try:
-        os.remove(".git/index.lock")
-    except:
-        pass
+    os.remove(".git/index.lock")
+    time.sleep(3)
     commit(message)
     time.sleep(5)
     pull(remote=remote, branch=branch)
