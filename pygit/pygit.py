@@ -70,8 +70,8 @@ def allInOne(message, remote, branch):
     Syntax: allInOne("commit message", "remote name", "remote branch name")
     Currently args are not supported.
     """
-    add(".")
-    time.sleep(2)
+    p(["git add ."], shell=True)
+    time.sleep(3)
     commit(message)
     time.sleep(5)
     pull(remote=remote, branch=branch)
