@@ -45,7 +45,7 @@ def stage(files):
 def push(remote, branch):
     """
     Pushes local commits to remote server.
-    Syntax: push(branch, remote)
+    Syntax: push("branch", "remote")
     It will push all commits.
     Currently other args are not supported.
     """
