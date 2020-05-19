@@ -2,14 +2,11 @@ import time
 from subprocess import Popen as p
 import sys
 from subprocess import PIPE
-def interactivity(DoIt):
+def interactivity():
     """
     An interactive wrapper for pyGit
     """
-    if not DoIt:
-        print("Ok, you aren't doing it.")
-    else:
-        print("Interactivity is not programmed yet :'/")
+    print("Interactivity is not programmed yet :'/")
 def pyGit():
     """
     Small infotext
@@ -79,4 +76,4 @@ def allInOne(message, remote, branch):
     push(remote=remote, branch=branch)
     print("All in One has completed. Check to see if it worked.")
 if __name__ == "__main__":
-    interactivity(True)
+    interactivity()
