@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pyyGit',
-    version='0.2.1',
+    version='0.2.3',
     description='the missing Python git module',
     license='DBAD',
     packages=['pyGit'],
