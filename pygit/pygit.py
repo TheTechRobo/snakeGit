@@ -71,6 +71,7 @@ def allInOne(message, remote, branch):
     Currently args are not supported.
     """
     add(".")
+    time.sleep(2)
     commit(message)
     time.sleep(5)
     pull(remote=remote, branch=branch)
