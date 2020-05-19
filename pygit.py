@@ -71,6 +71,7 @@ def allInOne(message, remote, branch):
     """
     add(".")
     commit(message)
+    time.sleep(2)
     pull(remote=remote, branch=branch)
     push(remote=remote, branch=branch)
     print("All in One has completed. Check to see if it worked.")
