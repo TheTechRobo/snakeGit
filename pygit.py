@@ -53,6 +53,12 @@ def push(remote, branch):
     yolo = p(["git", "push", remote, branch], shell=False, stdout=sys.stdout, stderr=sys.stdout)
     print("Attempted to push. Look to see if it was successful.")
 def pull(remote, branch):
+    """
+    Pulls from remote server.
+    Syntax: pull("remote", "branch")
+    It will pull from the remote repository.
+    Currently other args are not supported.
+    """
     print("Pulling commits from remote %s, branch %s..." % (remote, branch))
     ih = p(["git", "pull", remote, branch], shell=False, stdout=sys.stdout, stderr=sys.stdout)
     print("Attempted to pull from remote %s, branch %s. Look below to see if it was successful, if it failed it would show you details." % (remote, branch))
