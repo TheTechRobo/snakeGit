@@ -68,7 +68,10 @@ def allInOne(message, remote, branch):
     Currently args are not supported.
     """
     p(["git add ."], shell=True)
-    time.sleep(3)
+    try:
+        os.remove(".git/index.lock")
+    except:
+        pass
     commit(message)
     time.sleep(5)
     pull(remote=remote, branch=branch)
