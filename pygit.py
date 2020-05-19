@@ -13,7 +13,7 @@ def pyGit():
     """
     Small infotext
     """
-    print("This is pyGit v.0.1.1-stable. It is currently unfinished.\nThanks for your interest! Check back later, it will probably have received some updates.")
+    print("This is pyGit v.0.2-stable. It is currently unfinished.\nThanks for your interest! Check back later, it will probably have received some updates.")
     print("If you need syntax documentation, it is either at github.com/thetechrobo/PyGit/wiki OR you can just type help(pygit) into the console (after you have imported it).")
 def commit(msg):
     """
@@ -62,5 +62,17 @@ def pull(remote, branch):
     print("Pulling commits from remote %s, branch %s..." % (remote, branch))
     ih = p(["git", "pull", remote, branch], shell=False, stdout=sys.stdout, stderr=sys.stdout)
     print("Attempted to pull from remote %s, branch %s. Look below to see if it was successful, if it failed it would show you details." % (remote, branch))
+def allInOne(message, remote, branch):
+    """
+    Adds all files -- with add(".") --, commits with user-given message, pulls from remote, pushes to remote.
+    Basically an allinone. Really useful.
+    Syntax: allInOne("commit message", "remote name", "remote branch name")
+    Currently args are not supported.
+    """
+    add(".")
+    commit(message)
+    pull(remote=remote, branch=branch)
+    push(remote=remote, branch=branch)
+    print("All in One has completed. Check to see if it worked.")
 if __name__ == "__main__":
     interactivity(True)
