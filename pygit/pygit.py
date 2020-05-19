@@ -39,6 +39,8 @@ def add(files):
 def stage(files):
     """
     Same as add()
+    Syntax: stage("files")
+    See add() documentation for more details.
     """
     add(files)
 def push(remote, branch):
