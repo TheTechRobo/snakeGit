@@ -1,6 +1,8 @@
 # pyGit
 A small module for running Git operations...
 
+![pyGit in use](https://thetechrobo.github.io/resources-online/OK%20BOOMERv3.gif)
+
 Documentation and details are in the [wiki](https://github.com/thetechrobo/pygit/wiki).
 
 # Installing from PyPI
