@@ -3,6 +3,8 @@ from subprocess import Popen as p
 import sys
 from subprocess import PIPE
 import os
+import functools
+import operator
     
 def interactivity():
     """
@@ -42,7 +44,7 @@ def add(files):
     print("Staging files...")
     ih = p(["git", "add", "%s" % files], shell=False, stdout=PIPE, stderr=PIPE)
     hi = str(ih.communicate())
-    print(''.join(hi))
+    print(functools.reduce(operator.add, (hi)))
 def stage(files):
     """
     Same as add()
