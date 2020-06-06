@@ -81,7 +81,11 @@ def allInOne(message, remote, branch):
     try:
         os.remove(".git/index.lock")
     except:
-        pass
+        time.sleep(2)
+        try:
+            os.remove(".git/index.lock")
+        except:
+            pass
     commit(message)
     pull(remote=remote, branch=branch)
     push(remote=remote, branch=branch)
