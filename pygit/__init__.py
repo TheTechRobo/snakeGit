@@ -6,11 +6,13 @@ import os
 import functools
 import operator
 
-def interactivity():
-    """
-    An interactive wrapper for pyGit
-    """
-    print("Interactivity is not programmed yet :'/")
+class interactivity:
+    def interactivity:
+        """
+        An interactive wrapper for pyGit
+        """
+        print("Interactivity is not programmed yet :'/")
+
 def pyGit():
     """
     Small infotext
@@ -27,8 +29,10 @@ def commit(msg):
     """
     print("Commiting message...")
     hi = p(["git", "commit", "-m", " pyGit Commit: %s" % msg], shell=False, stdout=PIPE, stderr=PIPE)
-    ih = str(hi.communicate())
-    print(''.join(ih)) 
+    ih = hi.communicate()
+    hi, _ = ih
+    ih = hi.decode('UTF-8') #https://stackoverflow.com/questions/6269765/what-does-the-b-character-do-in-front-of-a-string-literal
+    print(ih)
 def add(files):
     """
     Stages files to be commited.
@@ -39,7 +43,9 @@ def add(files):
     """
     print("Staging files...")
     ih = p(["git", "add", "%s" % files], shell=False, stdout=PIPE, stderr=PIPE)
-    hi = str(ih.communicate())
+    hi = ih.communicate()
+    _, ih = hi
+    hi = ih.decode("UTF-8")
     print(functools.reduce(operator.add, (hi)))
 def stage(files):
     """
