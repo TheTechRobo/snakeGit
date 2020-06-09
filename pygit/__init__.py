@@ -105,9 +105,9 @@ def allInOne(message="", remote="", branch=""):
     """
     Adds all files -- with add(".") --, commits with user-given message, pulls from remote, pushes to remote.
     Basically an allinone. Really useful.
-    - If the default upstream has not been set or you want to use a different one, you must specify branch name and remote name.
+    - If the default upstream has not been set or you want to use a different one, you must specify branch name and remote name, e.g. allInOne(remote="origin", branch="master")
     - The commit message is optional, and as long as you are OK with the upstream branch (if it is set) you don't need to specify branch name and remote name.
-    - All in all: allInOne("commit message (optional)", "remote name (optional)", "remote branch name (optional)")
+    - All in all: allInOne("commit message (optional)", remote="remote name (optional)", branch="remote branch name (optional)")
     Currently args are not supported.
     """
     add(".")
