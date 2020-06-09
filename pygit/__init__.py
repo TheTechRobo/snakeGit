@@ -28,8 +28,12 @@ def commit(msg):
     pyGit assumes that YOU are the author.
     If you want to add this functionality, either add it yourself and Pull Request your changes, or request it in the Issues section.
     """
-    print("Commiting message...")
-    hi = p(["git", "commit", "--allow-empty-message", "-m" "pyGit Commit: %s" % msg], shell=False, stdout=PIPE, stderr=PIPE)
+    if msg == "":
+        print("Commiting...")
+        hi = p(["git", "commit", "-m" "pyGit Commit"], shell=False, stdout=PIPE, stderr=PIPE)
+    else:
+        print("Commiting with message %s..." % msg)
+        hi = p(["git", "commit", "-m" "pyGit Commit: %s" % msg], shell=False, stdout=PIPE, stderr=PIPE)
     ih = hi.communicate()
     hi, _ = ih
     ih = hi.decode('UTF-8') #https://stackoverflow.com/questions/6269765/what-does-the-b-character-do-in-front-of-a-string-literal
