@@ -66,8 +66,15 @@ def push(remote="", branch=""):
     - But, if you choose where to push commits (or the default has not been set), use push("remote", "branch").
     Currently other args are not supported.
     """
-    print("Pushing to branch %s, remote %s" % (branch, remote))
-    yolo = p(["git", "push", remote, branch], shell=False, stdout=PIPE, stderr=PIPE)
+    if remote == "":
+        print("Pushing to upstream default.")
+        yolo = p(["git", "push"], shell=False, stdout=PIPE, stderr=PIPE)
+    elif branch == "":
+        print("Pushing to upstream default.")
+        yolo = p(["git", "push"], shell=False, stdout=PIPE, stderr=PIPE)
+    else:
+        print("Pushing to branch %s, remote %s" % (branch, remote))
+        yolo = p(["git", "push", remote, branch], shell=False, stdout=PIPE, stderr=PIPE)
     yol = str(str(str(yolo.communicate())))
     print(''.join(yol))
 def pull(remote, branch):
@@ -77,8 +84,15 @@ def pull(remote, branch):
     It will pull from the remote repository.
     Currently other args are not supported.
     """
-    print("Pulling commits from remote %s, branch %s..." % (remote, branch))
-    ih = p(["git", "pull", remote, branch], shell=False, stdout=sys.stdout, stderr=sys.stdout)
+    if remote == "":
+        print("Pulling commits from upstream default.")
+        ih = p(["git", "pull"], shell=False, stdout=PIPE, stderr=PIPE)
+    elif remote == "":
+        print("Pulling commits from upstream default.")
+        ih = p(["git", "pull"], shell=False, stdout=PIPE, stderr=PIPE)
+    else:
+        print("Pulling commits from remote %s, branch %s..." % (remote, branch))
+        ih = p(["git", "pull", remote, branch], shell=False, stdout=sys.stdout, stderr=sys.stdout)
     hi = str(ih.communicate())
     print(''.join(hi))
 def allInOne(message="", remote="", branch=""):
