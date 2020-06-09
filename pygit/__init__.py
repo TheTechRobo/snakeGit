@@ -7,7 +7,7 @@ import functools
 import operator
 
 class interactivity:
-    def interactivity:
+    def interactivity():
         """
         An interactive wrapper for pyGit
         """
@@ -21,14 +21,15 @@ def pyGit():
     print("If you need syntax documentation, it is either at github.com/thetechrobo/PyGit/wiki OR you can just type help(pygit) into the console (after you have imported it).")
 def commit(msg):
     """
-    Commits with a message.
+    Commits staged changes.
+    - The message argument is completely optional (it commits with the --allow-empty-message flag).
     Syntax: commit("message")
     Currently pyGit does not support Authoring and other Weird Git Stuff.
     pyGit assumes that YOU are the author.
     If you want to add this functionality, either add it yourself and Pull Request your changes, or request it in the Issues section.
     """
     print("Commiting message...")
-    hi = p(["git", "commit", "-m", " pyGit Commit: %s" % msg], shell=False, stdout=PIPE, stderr=PIPE)
+    hi = p(["git", "commit", "--allow-empty-message", "-m" "pyGit Commit: %s" % msg], shell=False, stdout=PIPE, stderr=PIPE)
     ih = hi.communicate()
     hi, _ = ih
     ih = hi.decode('UTF-8') #https://stackoverflow.com/questions/6269765/what-does-the-b-character-do-in-front-of-a-string-literal
@@ -46,7 +47,10 @@ def add(files):
     hi = ih.communicate()
     _, ih = hi
     hi = ih.decode("UTF-8")
-    print(functools.reduce(operator.add, (hi)))
+    try:
+        print(functools.reduce(operator.add, (hi)))
+    except: #if there was no output
+        pass
 def stage(files):
     """
     Same as add()
@@ -54,11 +58,12 @@ def stage(files):
     See add() documentation for more details.
     """
     add(files)
-def push(remote, branch):
+def push(remote="", branch=""):
     """
     Pushes local commits to remote server.
-    Syntax: push("branch", "remote")
-    It will push all commits.
+    Syntax:
+    - If you have set the default upstream for the current branch already, just push() will be sufficient.
+    - But, if you choose where to push commits (or the default has not been set), use push("remote", "branch").
     Currently other args are not supported.
     """
     print("Pushing to branch %s, remote %s" % (branch, remote))
@@ -76,11 +81,13 @@ def pull(remote, branch):
     ih = p(["git", "pull", remote, branch], shell=False, stdout=sys.stdout, stderr=sys.stdout)
     hi = str(ih.communicate())
     print(''.join(hi))
-def allInOne(message, remote, branch):
+def allInOne(message="", remote="", branch=""):
     """
     Adds all files -- with add(".") --, commits with user-given message, pulls from remote, pushes to remote.
     Basically an allinone. Really useful.
-    Syntax: allInOne("commit message", "remote name", "remote branch name")
+    - If the default upstream has not been set or you want to use a different one, you must specify branch name and remote name.
+    - The commit message is optional, and as long as you are OK with the upstream branch (if it is set) you don't need to specify branch name and remote name.
+    - All in all: allInOne("commit message (optional)", "remote name (optional)", "remote branch name (optional)")
     Currently args are not supported.
     """
     add(".")
