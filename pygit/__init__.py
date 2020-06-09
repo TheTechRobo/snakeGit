@@ -93,7 +93,9 @@ def pull(remote, branch):
     else:
         print("Pulling commits from remote %s, branch %s..." % (remote, branch))
         ih = p(["git", "pull", remote, branch], shell=False, stdout=sys.stdout, stderr=sys.stdout)
-    hi = str(ih.communicate())
+    hi = ih.communicate()
+    ih, _ = hi
+    hi = ih.decode("UTF-8")
     print(''.join(hi))
 def allInOne(message="", remote="", branch=""):
     """
