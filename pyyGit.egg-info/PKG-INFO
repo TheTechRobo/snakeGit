@@ -6,6 +6,9 @@ Home-page: https://github.com/TheTechRobo/PyGit
 Author: ittussarom retals mail ynohtna
 Author-email: thetechrobo@outlook.com
 License: DBAD
+Project-URL: Documentation, https://github.com/thetechrobo/PyGit/wiki
+Project-URL: Source, https://github.com/thetechrobo/pygit
+Project-URL: Tracker, https://github.com/thetechrobo/pygit/issues
 Description: UNKNOWN
 Keywords: git,easy,thetechrobo
 Platform: UNKNOWN
