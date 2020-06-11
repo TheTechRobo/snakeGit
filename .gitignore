@@ -1,3 +1,15 @@
 .DS_Store
 Thumbs.db
 *.log
+dist/
+pyyGit.egg-info/
+__pycache__/
+pyGit/__pycache__/
+*.pyc
+*.pyo
+*.pyw
+desktop.ini
+Desktop.ini
+*.tmp
+*.temp
+*.bak
