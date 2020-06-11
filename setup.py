@@ -1,9 +1,13 @@
 from setuptools import setup
 
+with open("README.md", "r") as file:
+    long_desc = file.read()
+
 setup(
     name='pyyGit',
     version='0.2.4',
     description='the missing Python git module',
+    long_description=long_desc,
     license='DBAD',
     packages=['pyGit'],
     author='ittussarom retals mail ynohtna',
