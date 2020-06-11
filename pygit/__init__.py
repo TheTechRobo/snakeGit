@@ -79,7 +79,9 @@ def push(remote="", branch=""):
     else:
         print("Pushing to branch %s, remote %s" % (branch, remote))
         yolo = p(["git", "push", remote, branch], shell=False, stdout=PIPE, stderr=PIPE)
-    yol = str(str(str(yolo.communicate())))
+    yol = yolo.communicate()
+    _, ih = yol
+    yol = ih.decode("UTF-8")
     print(''.join(yol))
 def pull(remote, branch):
     """
