@@ -5,7 +5,7 @@ with open("README.md", "r") as file:
 
 setup(
     name='pyyGit',
-    version='0.2.4',
+    version='0.2.5',
     description='the missing Python git module',
     long_description=long_desc,
     license='DBAD',
