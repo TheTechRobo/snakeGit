@@ -5,7 +5,7 @@ A small module for running Git operations...
 
 **NOTE: pyGit has not finished development yet. Use with caution!**
 
-![pyGit in use](https://thetechrobo.github.io/resources-online/OK%20BOOMERv3.gif)
+![pyGit in use](https://thetechrobo.github.io/resources-online/PyGit_GIFv3.gif)
 
 **NOTE 2: pyGit is STILL BEING MAINTAINED. It's just not my priority, as I've been pretty busy lately.**
 
