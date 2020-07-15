@@ -3,8 +3,6 @@ from subprocess import Popen as p
 import sys
 from subprocess import PIPE
 import os
-import functools
-import operator
 
 class interactivity:
     def interactivity():
@@ -51,10 +49,7 @@ def add(files):
     hi = ih.communicate()
     _, ih = hi
     hi = ih.decode("UTF-8")
-    try:
-        print(functools.reduce(operator.add, (hi)))
-    except: #if there was no output
-        pass
+    print(hi)
 def stage(files):
     """
     Same as add()
@@ -103,7 +98,7 @@ def pull(remote, branch):
     ih, _ = hi
     hi = ih.decode("UTF-8")
     print(''.join(hi))
-def allInOne(message="", remote="", branch=""):
+def allInOne(message="pyGit Commit", remote="", branch=""):
     """
     Adds all files -- with add(".") --, commits with user-given message, pulls from remote, pushes to remote.
     Basically an allinone. Really useful.
