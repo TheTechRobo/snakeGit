@@ -1,8 +1,6 @@
 import time
-from subprocess import Popen as p
-import sys
-from subprocess import PIPE
-import os
+from subprocess import Popen, PIPE
+p = Popen
 
 class interactivity:
     def interactivity():
@@ -88,12 +86,12 @@ def pull(remote, branch):
     if remote == "":
         print("Pulling commits from upstream default.")
         ih = p(["git", "pull"], shell=False, stdout=PIPE, stderr=PIPE)
-    elif remote == "":
+    elif remote == " ":
         print("Pulling commits from upstream default.")
         ih = p(["git", "pull"], shell=False, stdout=PIPE, stderr=PIPE)
     else:
         print("Pulling commits from remote %s, branch %s..." % (remote, branch))
-        ih = p(["git", "pull", remote, branch], shell=False, stdout=sys.stdout, stderr=sys.stdout)
+        ih = p(["git", "pull", remote, branch], shell=False, stdout=PIPE, stderr=PIPE)
     hi = ih.communicate()
     ih, _ = hi
     hi = ih.decode("UTF-8")
@@ -101,21 +99,23 @@ def pull(remote, branch):
 def allInOne(message="pyGit Commit", remote="", branch=""):
     """
     Adds all files -- with add(".") --, commits with user-given message, pulls from remote, pushes to remote.
-    Basically an allinone. Really useful.
+    Basically an all-in-one. Really useful.
     - If the default upstream has not been set or you want to use a different one, you must specify branch name and remote name, e.g. allInOne(remote="origin", branch="master")
     - The commit message is optional, and as long as you are OK with the upstream branch (if it is set) you don't need to specify branch name and remote name.
     - All in all: allInOne("commit message (optional)", remote="remote name (optional)", branch="remote branch name (optional)")
     Currently args are not supported.
     """
     add(".")
+    import os
     try:
         os.remove(".git/index.lock")
-    except:
+    except Exception:
         time.sleep(2)
         try:
             os.remove(".git/index.lock")
-        except:
+        except Exception:
             pass
+    del os
     commit(message)
     pull(remote=remote, branch=branch)
     push(remote=remote, branch=branch)
