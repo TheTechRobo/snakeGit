@@ -3,6 +3,9 @@ from subprocess import Popen, PIPE
 p = Popen
 
 def parseIni():
+    """
+    DO NOT USE THIS YOURSELF! It is run automagically.
+    """
     import configparser
     config = configparser.ConfigParser()
     config.read('config.ini')
