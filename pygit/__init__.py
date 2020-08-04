@@ -7,8 +7,13 @@ def parseIni():
     config = configparser.ConfigParser()
     config.read('config.ini')
     try:
-        brandingYesNo = config.getboolean("[main]", "branding")
-        #if config['main']['branding'] == 
+        #brandingYesNo = config.getboolean("[main]", "branding")
+        if config['main']['branding'].lower() in ['yes', 'on', 'enabled', 'enable', 'true', '1']:
+            brandingYesNo = True
+        elif config['main']['branding'].lower() in ['no', 'off', 'disable', 'disabled', 'false', '0']:
+            brandingYesNo = False
+        else:
+            raise ValueError
     except ValueError:
         print("Syntax error in config.ini: branding configuration must be ON or OFF.")
         print("Proceeding with branding ENABLED.")
