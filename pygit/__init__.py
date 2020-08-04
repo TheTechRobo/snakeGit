@@ -7,7 +7,7 @@ def parseIni():
     config = configparser.ConfigParser()
     config.read('config.ini')
     try:
-        brandingYesNo = config['main'].getboolean('branding')
+        brandingYesNo = config['DEFAULT'].getboolean('branding')
         """
         if config['main']['branding'].lower() in ['yes', 'on', 'enabled', 'enable', 'true', '1']:
             brandingYesNo = True
