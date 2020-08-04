@@ -2,6 +2,22 @@ import time
 from subprocess import Popen, PIPE
 p = Popen
 
+def parseIni():
+    import configparser
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+    global brandingYesNo
+    try:
+        brandingYesNo = config.getboolean("main", "branding")
+    except Exception as ename:
+        print("Syntax error in config.ini: branding configuration must be ON or OFF.")
+if brandingYesNo:
+    prefixBlank = "pyGit Commit"
+    prefix = "pyGit Commit: "
+else:
+    prefixBlank = ""
+    prefix = ""
+
 class interactivity:
     def interactivity():
         """
@@ -15,7 +31,7 @@ def pyGit():
     """
     print("This is pyGit v.0.2.4-stable. It is currently unfinished.\nThanks for your interest! Check back later, it will probably have received some updates.")
     print("If you need syntax documentation, it is either at github.com/thetechrobo/PyGit/wiki OR you can just type help(pygit) into the console (after you have imported it).")
-def commit(msg="pyGit Commit"):
+def commit(msg=""):
     """
     Commits staged changes.
     - The message argument is completely optional (it commits with the --allow-empty-message flag).
@@ -24,12 +40,12 @@ def commit(msg="pyGit Commit"):
     pyGit assumes that YOU are the author.
     If you want to add this functionality, either add it yourself and Pull Request your changes, or request it in the Issues section.
     """
-    if msg == "pyGit Commit":
+    if msg == "":
         print("Commiting...")
-        hi = p(["git", "commit", "-m", msg], shell=False, stdout=PIPE, stderr=PIPE)
+        hi = p(["git", "commit", "-m", prefixBlank], shell=False, stdout=PIPE, stderr=PIPE)
     else:
         print("Commiting with message %s..." % msg)
-        hi = p(["git", "commit", "-m" "pyGit Commit: %s" % msg], shell=False, stdout=PIPE, stderr=PIPE)
+        hi = p(["git", "commit", "-m" "%s%s" % (prefix, msg)], shell=False, stdout=PIPE, stderr=PIPE)
     ih = hi.communicate()
     hi, _ = ih
     ih = hi.decode('UTF-8') #https://stackoverflow.com/questions/6269765/what-does-the-b-character-do-in-front-of-a-string-literal
@@ -96,7 +112,7 @@ def pull(remote, branch):
     ih, _ = hi
     hi = ih.decode("UTF-8")
     print(''.join(hi))
-def allInOne(message="pyGit Commit", remote="", branch=""):
+def allInOne(message="", remote="", branch=""):
     """
     Adds all files -- with add(".") --, commits with user-given message, pulls from remote, pushes to remote.
     Basically an all-in-one. Really useful.
