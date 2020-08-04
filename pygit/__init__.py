@@ -8,7 +8,7 @@ def parseIni():
     config.read('config.ini')
     try:
         brandingYesNo = config.getboolean("main", "branding")
-    except Exception as ename:
+    except ValueError:
         print("Syntax error in config.ini: branding configuration must be ON or OFF.")
         print("Proceeding with branding ENABLED.")
         brandingYesNo = True
