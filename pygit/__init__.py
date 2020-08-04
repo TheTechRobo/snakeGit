@@ -13,7 +13,7 @@ def parseIni():
         print("Proceeding with branding ENABLED.")
         brandingYesNo = True
     return brandingYesNo
-if brandingYesNo:
+if parseIni():
     prefixBlank = "pyGit Commit"
     prefix = "pyGit Commit: "
 else:
