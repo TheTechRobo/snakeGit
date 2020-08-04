@@ -6,11 +6,13 @@ def parseIni():
     import configparser
     config = configparser.ConfigParser()
     config.read('config.ini')
-    global brandingYesNo
     try:
         brandingYesNo = config.getboolean("main", "branding")
     except Exception as ename:
         print("Syntax error in config.ini: branding configuration must be ON or OFF.")
+        print("Proceeding with branding ENABLED.")
+        brandingYesNo = True
+    return brandingYesNo
 if brandingYesNo:
     prefixBlank = "pyGit Commit"
     prefix = "pyGit Commit: "
