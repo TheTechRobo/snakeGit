@@ -25,5 +25,8 @@ setup(
         'Source': 'https://github.com/thetechrobo/pygit',
         'Tracker': 'https://github.com/thetechrobo/pygit/issues',
     },
+
+    long_description_content_type='text/markdown',
+
     python_requires='>=3',
 )
