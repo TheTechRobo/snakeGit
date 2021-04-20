@@ -14,7 +14,7 @@ setup(
     author_email='thetechrobo@outlook.com',
     keywords=['git', 'easy', 'thetechrobo'],
     url='https://github.com/TheTechRobo/PyGit',
-    
+
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
