@@ -5,12 +5,12 @@ with open("README.md", "r") as file:
 
 setup(
     name='pyyGit',
-    version='0.2.5',
+    version='0.3.1',
     description='the missing Python git module',
     long_description=long_desc,
     license='DBAD',
     packages=['pyGit'],
-    author='ittussarom retals mail ynohtna',
+    author='TheTechRobo',
     author_email='thetechrobo@outlook.com',
     keywords=['git', 'easy', 'thetechrobo'],
     url='https://github.com/TheTechRobo/PyGit',
