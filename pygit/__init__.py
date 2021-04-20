@@ -39,13 +39,13 @@ def commit(msg="", branding=True):
     hi, _ = ih
     ih = hi.decode('UTF-8') #https://stackoverflow.com/questions/6269765/what-does-the-b-character-do-in-front-of-a-string-literal
     print(ih)
-def add(files):
+def add(files="."):
     """
     Stages files to be commited.
     Syntax: add("files")
     Use as many files as you want, separated by a space.
     Please make it a string.
-    If you want to add all files, use "."
+    If you want to add all files, use "." or don't provide any arguments at all.
     """
     print("Staging files...")
     ih = Popen(["git", "add", "%s" % files], shell=False, stdout=PIPE, stderr=PIPE)
@@ -74,7 +74,7 @@ def push(remote="", branch=""):
     _, ih = yol
     yol = ih.decode("UTF-8")
     print(''.join(yol))
-def pull(remote, branch):
+def pull(remote="", branch=""):
     """
     Pulls from remote server.
     Syntax: pull("remote", "branch")
