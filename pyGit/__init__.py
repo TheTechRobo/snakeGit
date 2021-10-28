@@ -4,41 +4,27 @@ p = run
 
 brandedSuffix = "\n(This commit created with pyGit)"
 
-class interactivity:
-    def interactivity():
-        """
-        An interactive wrapper for pyGit
-        """
-        print("Interactivity is not programmed yet :'/")
-
 def pyGit():
     """
     Small infotext
     """
     print("This is pyGit v.0.2.7-stable. It is currently unfinished.\nThanks for your interest! Check back later, it will probably have received some updates.")
     print("If you need syntax documentation, it is either at github.com/thetechrobo/PyGit/wiki OR you can just type help(pygit) into the console (after you have imported it).")
-def commit(msg="", branding=True):
+def commit(msg="", branding=True, allow_empty_message=False):
     """
     Commits staged changes.
     - The message argument is completely optional (it commits with the --allow-empty-message flag).
     - branding is also optional. It defaults to True. If set to True, if the commit is not blank, "\nThis commit created by pyGit" will be appended to the end of the commit.
-    Currently pyGit does not support Authoring and other Weird Git Stuff.
     pyGit assumes that YOU are the author.
     If you want to add this functionality, either add it yourself and Pull Request your changes, or request it in the Issues section.
     """
     suffix = ""
     if branding:
         suffix = brandedSuffix
-    if msg == "":
-        print("Commiting...")
-        hi = Popen(["git", "commit", "-m", ""], shell=False, stdout=PIPE, stderr=PIPE)
+    if msg == "" and allow_empty_message is True:
+        return run(["git", "commit", "-m", "--allow-empty-message", ""], shell=False, capture_output=True)
     else:
-        print("Commiting with message %s..." % msg)
-        hi = Popen(["git", "commit", "-m" "%s%s" % (msg, suffix)], shell=False, stdout=PIPE, stderr=PIPE)
-    ih = hi.communicate()
-    hi, _ = ih
-    ih = hi.decode('UTF-8') #https://stackoverflow.com/questions/6269765/what-does-the-b-character-do-in-front-of-a-string-literal
-    print(ih)
+        return run(["git", "commit", "-m" "%s%s" % (msg, suffix)], capture_output=True, shell=False)
 def add(files="."):
     """
     Stages files to be commited.
@@ -47,12 +33,7 @@ def add(files="."):
     Please make it a string.
     If you want to add all files, use "." or don't provide any arguments at all.
     """
-    print("Staging files...")
-    ih = Popen(["git", "add", "%s" % files], shell=False, stdout=PIPE, stderr=PIPE)
-    hi = ih.communicate()
-    _, ih = hi
-    hi = ih.decode("UTF-8")
-    print(hi)
+    return run(["git", "add", "%s" % files], shell=False, capture_output=True)
 
 def push(remote="", branch=""):
     """
@@ -65,15 +46,9 @@ def push(remote="", branch=""):
     remote = remote.strip()
     branch = branch.strip()
     if remote == "" or branch == "":
-        print("Pushing to upstream default.")
-        yolo = Popen(["git", "push"], shell=False, stdout=PIPE, stderr=PIPE)
+        return run(["git", "push"], shell=False, capture_output=True)
     else:
-        print("Pushing to branch %s, remote %s" % (branch, remote))
-        yolo = Popen(["git", "push", remote, branch], shell=False, stdout=PIPE, stderr=PIPE)
-    yol = yolo.communicate()
-    _, ih = yol
-    yol = ih.decode("UTF-8")
-    print(''.join(yol))
+        return run(["git", "push", remote, branch], capture_output=True, shell=False)
 def pull(remote="", branch=""):
     """
     Pulls from remote server.
@@ -85,14 +60,11 @@ def pull(remote="", branch=""):
     branch = branch.strip()
     if remote == "" or branch == "":
         print("Pulling commits from upstream default.")
-        ih = p(["git", "pull"], shell=False, stdout=PIPE, stderr=PIPE)
+        ih = p(["git", "pull"], shell=False, capture_output=True)
     else:
         print("Pulling commits from remote %s, branch %s..." % (remote, branch))
-        ih = p(["git", "pull", remote, branch], shell=False, stdout=PIPE, stderr=PIPE)
-    hi = ih.communicate()
-    ih, _ = hi
-    hi = ih.decode("UTF-8")
-    print(''.join(hi))
+        ih = p(["git", "pull", remote, branch], shell=False, capture_output=True)
+    return ih
 def allInOne(message="", remote="", branch="", branding=True):
     """
     Adds all files -- with add(".") --, commits with user-given message, pulls from remote, pushes to remote.
@@ -104,19 +76,8 @@ def allInOne(message="", remote="", branch="", branding=True):
     Currently args are not supported.
     """
     add(".")
-    try:
-        os.remove(".git/index.lock")
-    except Exception:
-        time.sleep(2)
-        try:
-            os.remove(".git/index.lock")
-        except Exception:
-            pass
     commit(message, branding)
     pull(remote=remote, branch=branch)
     push(remote=remote, branch=branch)
 
 stage = add
-
-if __name__ == "__main__":
-    interactivity()
