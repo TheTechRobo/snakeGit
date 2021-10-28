@@ -1,6 +1,8 @@
 # pyGit ![Maintained? Kind of...](https://img.shields.io/badge/maintained%3F-on%20and%20off-yellow)
 A small module for running Git operations...
 
+# please suggest to me better PyPI names that pyyGit...sounds like I'm trying to scam people (typo-squatting)
+
 **Check out [Palc](https://github.com/thetechrobo/python-text-calculator), it's even better than pyGit**
 
 **NOTE: pyGit has not finished development yet. Use with caution!**
