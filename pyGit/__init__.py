@@ -1,6 +1,6 @@
 import time, os
-from subprocess import Popen, PIPE
-p = Popen
+from subprocess import Popen, PIPE, run
+p = run
 
 brandedSuffix = "\n(This commit created with pyGit)"
 
