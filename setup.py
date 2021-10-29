@@ -9,11 +9,11 @@ if sys.version_info < (3,7):
     sys.exit('Sorry, Python < 3.7 is not supported')
 setup(
     name='snakeGit',
-    version='0.4.3',
+    version='0.4.4',
     description='the missing Python git module',
     long_description=long_desc,
     python_requires='>3.7.0',
-    license='DBAD',
+    license='Apache-2.0',
     packages=['snakeGit'],
     author='TheTechRobo',
     author_email='thetechrobo@outlook.com',
