@@ -1,0 +1,8 @@
+LICENCE
+README.md
+setup.py
+snakeGit/__init__.py
+snakeGit.egg-info/PKG-INFO
+snakeGit.egg-info/SOURCES.txt
+snakeGit.egg-info/dependency_links.txt
+snakeGit.egg-info/top_level.txt

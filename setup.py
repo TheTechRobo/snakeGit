@@ -8,17 +8,17 @@ import sys
 if sys.version_info < (3,7):
     sys.exit('Sorry, Python < 3.7 is not supported')
 setup(
-    name='pyyGit',
-    version='0.4',
+    name='snakeGit',
+    version='0.4.1',
     description='the missing Python git module',
     long_description=long_desc,
     python_requires='>3.7.0',
     license='DBAD',
-    packages=['pyGit'],
+    packages=['snakeGit'],
     author='TheTechRobo',
     author_email='thetechrobo@outlook.com',
     keywords=['git', 'easy', 'thetechrobo'],
-    url='https://github.com/TheTechRobo/PyGit',
+    url='https://github.com/TheTechRobo/snakegit',
 
     classifiers=[
         'Development Status :: 3 - Alpha',
@@ -26,9 +26,9 @@ setup(
         'Programming Language :: Python :: 3'
     ],
     project_urls={
-        'Documentation': 'https://github.com/thetechrobo/PyGit/wiki',
-        'Source': 'https://github.com/thetechrobo/pygit',
-        'Tracker': 'https://github.com/thetechrobo/pygit/issues',
+        'Documentation': 'https://github.com/thetechrobo/snakegit/wiki',
+        'Source': 'https://github.com/thetechrobo/snakegit',
+        'Tracker': 'https://github.com/thetechrobo/snakegit/issues',
     },
 
     long_description_content_type='text/markdown',

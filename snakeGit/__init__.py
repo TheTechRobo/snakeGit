@@ -8,8 +8,8 @@ def pyGit():
     """
     Small infotext
     """
-    print("This is pyGit v.0.2.7-stable. It is currently unfinished.\nThanks for your interest! Check back later, it will probably have received some updates.")
-    print("If you need syntax documentation, it is either at github.com/thetechrobo/PyGit/wiki OR you can just type help(pygit) into the console (after you have imported it).")
+    print("This is snakeGit. It is currently unfinished.\nThanks for your interest! Check back later, it will probably have received some updates.")
+    print("If you need syntax documentation, it is either at github.com/thetechrobo/snakegit/wiki OR you can just type help(snakeGit) into the console (after you have imported it).")
 def commit(msg="", branding=True, allow_empty_message=False):
     """
     Commits staged changes.
