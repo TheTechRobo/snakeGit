@@ -2,7 +2,7 @@
 Thumbs.db
 *.log
 dist/
-pyyGit.egg-info/
+*.egg-info/
 __pycache__/
 pyGit/__pycache__/
 *.pyc
