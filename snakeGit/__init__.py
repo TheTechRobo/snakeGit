@@ -59,10 +59,10 @@ def pull(remote="", branch=""):
     remote = remote.strip()
     branch = branch.strip()
     if remote == "" or branch == "":
-        print("Pulling commits from upstream default.")
+        #print("Pulling commits from upstream default.")
         ih = p(["git", "pull"], shell=False, capture_output=True)
     else:
-        print("Pulling commits from remote %s, branch %s..." % (remote, branch))
+        #print("Pulling commits from remote %s, branch %s..." % (remote, branch))
         ih = p(["git", "pull", remote, branch], shell=False, capture_output=True)
     return ih
 def allInOne(message="", remote="", branch="", branding=True):
