@@ -2,21 +2,20 @@ import time, os
 from subprocess import Popen, PIPE, run
 p = run
 
-brandedSuffix = "\n(This commit created with pyGit)"
+brandedSuffix = "\n(This commit created with snakeGit)"
 
-def pyGit():
+def snakeGit():
     """
     Small infotext
     """
     print("This is snakeGit. It is currently unfinished.\nThanks for your interest! Check back later, it will probably have received some updates.")
     print("If you need syntax documentation, it is either at github.com/thetechrobo/snakegit/wiki OR you can just type help(snakeGit) into the console (after you have imported it).")
+pyGit = snakeGit
 def commit(msg="", branding=True, allow_empty_message=False):
     """
     Commits staged changes.
     - The message argument is completely optional (it commits with the --allow-empty-message flag).
-    - branding is also optional. It defaults to True. If set to True, if the commit is not blank, "\nThis commit created by pyGit" will be appended to the end of the commit.
-    pyGit assumes that YOU are the author.
-    If you want to add this functionality, either add it yourself and Pull Request your changes, or request it in the Issues section.
+    - branding is also optional. It defaults to True. If set to True, if the commit is not blank, "\nThis commit created by snakeGit" will be appended to the end of the commit.
     """
     suffix = ""
     if branding:
