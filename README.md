@@ -5,6 +5,8 @@ A small module for running Git operations...
 
 **NOTE: snakeGit has not finished development yet. Use with caution!**
 
+**snakeGit has undergone a name change from pyGit. Please replace import names from pyGit to snakeGit.**
+
 ![pyGit in use](https://thetechrobo.github.io/resources-online/PyGit_GIFv3.gif)
 
 **NOTE 2: snakeGit is STILL BEING MAINTAINED. It's just not my priority, as I've been pretty busy lately.**

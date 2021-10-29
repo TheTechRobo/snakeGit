@@ -9,7 +9,7 @@ if sys.version_info < (3,7):
     sys.exit('Sorry, Python < 3.7 is not supported')
 setup(
     name='snakeGit',
-    version='0.4.4',
+    version='0.4.5',
     description='the missing Python git module',
     long_description=long_desc,
     python_requires='>3.7.0',
